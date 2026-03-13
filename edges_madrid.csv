@@ -1,0 +1,210 @@
+name_x,name_y
+Santa María De La Alameda-Peguerinos,Robledo De Chavela
+Robledo De Chavela,Zarzalejo
+Zarzalejo,El Escorial
+El Escorial,Zarzalejo
+Zarzalejo,Robledo De Chavela
+Robledo De Chavela,Santa María De La Alameda-Peguerinos
+Móstoles-El Soto,Móstoles
+Móstoles,Las Retamas
+Las Retamas,Alcorcón
+Alcorcón,San José De Valderas
+San José De Valderas,Cuatro Vientos
+Cuatro Vientos,Las águilas
+Las águilas,Maestra Justa Freire-Polidep. Aluche
+Maestra Justa Freire-Polidep. Aluche,Aluche
+Aluche,Laguna
+Laguna,Embajadores
+Embajadores,Madrid-Atocha Cercanías
+Madrid-Atocha Cercanías,Méndez álvaro P.v.
+Méndez álvaro P.v.,Doce De Octubre
+Doce De Octubre,Orcasitas
+Orcasitas,Puente Alcocer
+Puente Alcocer,Madrid-Villaverde Alto
+Madrid-Villaverde Alto,Zarzaquemada
+Zarzaquemada,Leganés
+Leganés,Parque Polvoranca
+Parque Polvoranca,La Serna-Fuenlabrada
+La Serna-Fuenlabrada,Fuenlabrada
+Fuenlabrada,Humanes
+Humanes,Fuenlabrada
+Fuenlabrada,La Serna-Fuenlabrada
+La Serna-Fuenlabrada,Parque Polvoranca
+Parque Polvoranca,Leganés
+Leganés,Zarzaquemada
+Zarzaquemada,Madrid-Villaverde Alto
+Madrid-Villaverde Alto,Puente Alcocer
+Puente Alcocer,Orcasitas
+Orcasitas,Doce De Octubre
+Doce De Octubre,Méndez álvaro P.v.
+Méndez álvaro P.v.,Madrid-Atocha Cercanías
+Madrid-Atocha Cercanías,Embajadores
+Embajadores,Laguna
+Laguna,Aluche
+Aluche,Maestra Justa Freire-Polidep. Aluche
+Maestra Justa Freire-Polidep. Aluche,Las águilas
+Las águilas,Cuatro Vientos
+Cuatro Vientos,San José De Valderas
+San José De Valderas,Alcorcón
+Alcorcón,Las Retamas
+Las Retamas,Móstoles
+Móstoles,Móstoles-El Soto
+Madrid-Chamartín-Clara Campoamor,Madrid-Nuevos Ministerios
+Madrid-Nuevos Ministerios,Sol
+Sol,Madrid-Atocha Cercanías
+Madrid-Atocha Cercanías,Madrid-Villaverde Bajo
+Madrid-Villaverde Bajo,San Cristóbal De Los ángeles
+San Cristóbal De Los ángeles,San Cristóbal Industrial
+San Cristóbal Industrial,El Casar
+El Casar,Getafe-Industrial
+Getafe-Industrial,Pinto
+Pinto,Valdemoro
+Valdemoro,Ciempozuelos
+Ciempozuelos,Aranjuez
+Aranjuez,Ciempozuelos
+Ciempozuelos,Valdemoro
+Valdemoro,Pinto
+Pinto,Getafe-Industrial
+Getafe-Industrial,El Casar
+El Casar,San Cristóbal Industrial
+San Cristóbal Industrial,San Cristóbal De Los ángeles
+San Cristóbal De Los ángeles,Madrid-Villaverde Bajo
+Madrid-Villaverde Bajo,Madrid-Atocha Cercanías
+Madrid-Atocha Cercanías,Sol
+Sol,Madrid-Nuevos Ministerios
+Madrid-Nuevos Ministerios,Madrid-Chamartín-Clara Campoamor
+Pinto,El Casar
+El Casar,Madrid-Atocha Cercanías
+Madrid-Atocha Cercanías,El Casar
+El Casar,Pinto
+Madrid-Villaverde Bajo,Madrid-Villaverde Alto
+Madrid-Villaverde Alto,Las Margaritas
+Las Margaritas,Getafe-Centro
+Getafe-Centro,Getafe-Sector 3
+Getafe-Sector 3,Parla
+Madrid-Chamartín-Clara Campoamor,Fuencarral
+Fuencarral,Universidad-Cantoblanco
+Universidad-Cantoblanco,Universidad Pontificia De Comillas
+Universidad Pontificia De Comillas,Valdelasfuentes
+Valdelasfuentes,Alcobendas-San Sebastián De Los Reyes
+Parla,Getafe-Sector 3
+Getafe-Sector 3,Getafe-Centro
+Getafe-Centro,Las Margaritas
+Las Margaritas,Madrid-Villaverde Alto
+Madrid-Villaverde Alto,Madrid-Villaverde Bajo
+Alcobendas-San Sebastián De Los Reyes,Valdelasfuentes
+Valdelasfuentes,Universidad Pontificia De Comillas
+Universidad Pontificia De Comillas,Universidad-Cantoblanco
+Universidad-Cantoblanco,Fuencarral
+Fuencarral,Madrid-Chamartín-Clara Campoamor
+Colmenar Viejo,Tres Cantos
+Tres Cantos,El Goloso
+El Goloso,Universidad-Cantoblanco
+Universidad-Cantoblanco,El Goloso
+El Goloso,Tres Cantos
+Tres Cantos,Colmenar Viejo
+Cercedilla,Los Molinos-Guadarrama
+Los Molinos-Guadarrama,Collado Mediano
+Collado Mediano,Alpedrete
+Alpedrete,Los Negrales
+Los Negrales,Villalba De Guadarrama
+Villalba De Guadarrama,Galapagar-La Navata
+Galapagar-La Navata,Torrelodones
+Torrelodones,Las Matas
+Las Matas,Pinar De Las Rozas
+Pinar De Las Rozas,Pitis
+Pitis,Mirasierra-Paco De Lucía
+Mirasierra-Paco De Lucía,Madrid-Ramón Y Cajal
+Madrid-Ramón Y Cajal,Madrid-Chamartín-Clara Campoamor
+Madrid-Chamartín-Clara Campoamor,Madrid-Ramón Y Cajal
+Madrid-Ramón Y Cajal,Mirasierra-Paco De Lucía
+Mirasierra-Paco De Lucía,Pitis
+Pitis,Pinar De Las Rozas
+Pinar De Las Rozas,Las Matas
+Las Matas,Torrelodones
+Torrelodones,Galapagar-La Navata
+Galapagar-La Navata,Villalba De Guadarrama
+Villalba De Guadarrama,Los Negrales
+Los Negrales,Alpedrete
+Alpedrete,Collado Mediano
+Collado Mediano,Los Molinos-Guadarrama
+Los Molinos-Guadarrama,Cercedilla
+Villalba De Guadarrama,San Yago
+San Yago,Las Zorreras-Navalquejigo
+Las Zorreras-Navalquejigo,El Escorial
+El Escorial,Las Zorreras-Navalquejigo
+Las Zorreras-Navalquejigo,San Yago
+San Yago,Villalba De Guadarrama
+Pinar De Las Rozas,Las Rozas
+Las Rozas,Majadahonda
+Majadahonda,El Barrial-Centro Comercial Pozuelo
+El Barrial-Centro Comercial Pozuelo,Pozuelo
+Pozuelo,Aravaca
+Aravaca,Madrid-Príncipe Pío
+Madrid-Príncipe Pío,Pirámides
+Pirámides,Delicias
+Delicias,Méndez álvaro P.v.
+Madrid-Atocha Cercanías,Madrid-Recoletos
+Madrid-Recoletos,Madrid-Nuevos Ministerios
+Villalba De Guadarrama,Pinar De Las Rozas
+Las Rozas,Pozuelo
+Madrid-Nuevos Ministerios,Madrid-Recoletos
+Madrid-Recoletos,Madrid-Atocha Cercanías
+Méndez álvaro P.v.,Delicias
+Delicias,Pirámides
+Pirámides,Madrid-Príncipe Pío
+Madrid-Príncipe Pío,Aravaca
+Aravaca,Pozuelo
+Pozuelo,Las Rozas
+Las Rozas,Pinar De Las Rozas
+Pinar De Las Rozas,Villalba De Guadarrama
+Madrid-Atocha Cercanías,Asamblea De Madrid-Entrevías
+Asamblea De Madrid-Entrevías,El Pozo
+El Pozo,Vallecas
+Vallecas,Santa Eugenia
+Santa Eugenia,Vicálvaro
+Vicálvaro,Coslada
+Coslada,San Fernando De Henares
+San Fernando De Henares,Torrejón De Ardoz
+Torrejón De Ardoz,Soto Del Henares
+Soto Del Henares,La Garena
+La Garena,Alcalá De Henares
+Alcalá De Henares,Alcalá De Henares-Universidad
+Alcalá De Henares-Universidad,Meco
+Meco,Azuqueca
+Azuqueca,Guadalajara
+Guadalajara,Azuqueca
+Azuqueca,Meco
+Meco,Alcalá De Henares-Universidad
+Alcalá De Henares-Universidad,Alcalá De Henares
+Alcalá De Henares,La Garena
+La Garena,Soto Del Henares
+Soto Del Henares,Torrejón De Ardoz
+Torrejón De Ardoz,San Fernando De Henares
+San Fernando De Henares,Coslada
+Coslada,Vicálvaro
+Vicálvaro,Santa Eugenia
+Santa Eugenia,Vallecas
+Vallecas,El Pozo
+El Pozo,Asamblea De Madrid-Entrevías
+Asamblea De Madrid-Entrevías,Madrid-Atocha Cercanías
+Pitis,Las Rozas
+Pozuelo,El Barrial-Centro Comercial Pozuelo
+El Barrial-Centro Comercial Pozuelo,Majadahonda
+Majadahonda,Las Rozas
+Las Rozas,Pitis
+Madrid-Chamartín-Clara Campoamor,Fuente De La Mora
+Fuente De La Mora,Valdebebas
+Valdebebas,Madrid-Aeropuerto T4
+Madrid-Aeropuerto T4,Valdebebas
+Valdebebas,Fuente De La Mora
+Fuente De La Mora,Madrid-Chamartín-Clara Campoamor
+Los Cotos,Puerto De Navacerrada
+Puerto De Navacerrada,Cercedilla
+Cercedilla,Puerto De Navacerrada
+Puerto De Navacerrada,Los Cotos
+Madrid-Chamartín-Clara Campoamor,Villalba De Guadarrama
+Fuente De La Mora,San Fernando De Henares
+Torrejón De Ardoz,Alcalá De Henares
+Alcalá De Henares,Torrejón De Ardoz
+San Fernando De Henares,Fuente De La Mora
