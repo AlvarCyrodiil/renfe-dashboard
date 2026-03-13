@@ -6,28 +6,18 @@ import pandas as pd
 import random
 import json
 
-# Cargar datos reales
+# Cargar datos
 stops = pd.read_csv('stops.txt')
-stop_times = pd.read_csv('stop_times_madrid.csv')
+edges_madrid = pd.read_csv('edges_madrid.csv')
 
 stops.columns = stops.columns.str.strip()
-stop_times.columns = stop_times.columns.str.strip()
 stops['stop_name'] = stops['stop_name'].str.strip()
 
-# Construir grafo
-stop_times = stop_times.sort_values(['trip_id', 'stop_sequence'])
-edges = stop_times.merge(stop_times, on='trip_id').query('stop_sequence_x + 1 == stop_sequence_y')[['stop_id_x', 'stop_id_y']]
-edges = edges.merge(stops[['stop_id', 'stop_name']], left_on='stop_id_x', right_on='stop_id').rename(columns={'stop_name': 'name_x'}).drop('stop_id', axis=1)
-edges = edges.merge(stops[['stop_id', 'stop_name']], left_on='stop_id_y', right_on='stop_id').rename(columns={'stop_name': 'name_y'}).drop('stop_id', axis=1)
-
-G = nx.from_pandas_edgelist(edges, source='name_x', target='name_y')
-pos = {row['stop_name']: (row['stop_lon'], row['stop_lat']) for _, row in stops.iterrows()}
-
-# Subgrafo Madrid
-componentes = list(nx.connected_components(G))
-madrid_component = next(comp for comp in componentes if 'Madrid-Atocha Cercanías' in comp)
-G_madrid = G.subgraph(madrid_component).copy()
-pos_madrid = {node: pos[node] for node in G_madrid.nodes() if node in pos}
+# Construir grafo directamente desde aristas precalculadas
+G_madrid = nx.from_pandas_edgelist(edges_madrid, source='name_x', target='name_y')
+pos_madrid = {row['stop_name']: (row['stop_lon'], row['stop_lat']) 
+              for _, row in stops.iterrows() 
+              if row['stop_name'] in G_madrid.nodes()}
 
 node_x = [pos_madrid[n][0] for n in G_madrid.nodes() if n in pos_madrid]
 node_y = [pos_madrid[n][1] for n in G_madrid.nodes() if n in pos_madrid]
