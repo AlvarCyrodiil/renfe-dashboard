@@ -102,7 +102,7 @@ app.layout = html.Div([
         dcc.Slider(id='step-slider', min=0, max=50, step=1, value=0,
                    marks={i: str(i) for i in range(0, 51, 5)}),
     ], style={'width': '80%', 'margin': 'auto', 'paddingBottom': '20px'}),
-    dcc.Interval(id='interval', interval=300, n_intervals=0, disabled=True),
+    dcc.Interval(id='interval', interval=100, n_intervals=0, disabled=True),
     dcc.Store(id='historial-store'),
     dcc.Store(id='playing', data=False)
 ])
@@ -202,7 +202,11 @@ def update_graph(step, historial_json, max_retraso):
                         title=dict(text=title, x=0.5, font=dict(size=14)),
                         showlegend=False, hovermode='closest',
                         xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
-                        yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+                        yaxis=dict(
+                            showgrid=False, zeroline=False, showticklabels=False,
+                            scaleanchor='x',  # fija la proporción respecto al eje x
+                            scaleratio=1.5    # ajuste para España (latitud/longitud)
+),
                         plot_bgcolor='white', margin=dict(l=20, r=20, t=40, b=20)
                     ))
     return fig
