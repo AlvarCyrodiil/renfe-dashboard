@@ -102,7 +102,7 @@ app.layout = html.Div([
         dcc.Slider(id='step-slider', min=0, max=50, step=1, value=0,
                    marks={i: str(i) for i in range(0, 51, 5)}),
     ], style={'width': '80%', 'margin': 'auto', 'paddingBottom': '20px'}),
-    dcc.Interval(id='interval', interval=100, n_intervals=0, disabled=True),
+    dcc.Interval(id='interval', interval=300, n_intervals=0, disabled=True),
     dcc.Store(id='historial-store'),
     dcc.Store(id='playing', data=False)
 ])
