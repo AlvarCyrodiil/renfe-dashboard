@@ -2,119 +2,32 @@ import dash
 from dash import dcc, html, Input, Output, State
 import plotly.graph_objects as go
 import networkx as nx
+import pandas as pd
 import random
 import json
 
-# Construir red sintética de Madrid (no necesita stop_times.txt)
-def build_madrid_network():
-    estaciones = [
-        'Madrid-Atocha Cercanías', 'Madrid-Chamartín-Clara Campoamor', 'Madrid-Recoletos',
-        'Madrid-Nuevos Ministerios', 'Madrid-Príncipe Pío', 'Madrid-Ramón Y Cajal',
-        'Pozuelo', 'Majadahonda', 'Las Rozas', 'El Escorial',
-        'Getafe-Centro', 'Getafe-Industrial', 'Getafe-Sector 3', 'Leganés',
-        'Móstoles', 'Móstoles-El Soto', 'Alcorcón', 'Fuenlabrada',
-        'Aranjuez', 'Ciempozuelos', 'Valdemoro', 'Pinto',
-        'Alcalá De Henares', 'Alcalá De Henares-Universidad', 'Guadalajara',
-        'Coslada', 'San Fernando', 'Torrejón De Ardoz',
-        'Vallecas', 'Asamblea De Madrid-Entrevías', 'Madrid-Villaverde Alto',
-        'Madrid-Villaverde Bajo', 'Madrid-Aeropuerto T4', 'Alcobendas-San Sebastián De Los Reyes',
-        'El Barrial-Centro Comercial Pozuelo', 'Parque Polvoranca',
-        'San Cristóbal De Los Ángeles', 'Pitis', 'Las Matas', 'Tres Cantos'
-    ]
-    
-    coords = {
-        'Madrid-Atocha Cercanías': (-3.6908, 40.4065),
-        'Madrid-Chamartín-Clara Campoamor': (-3.6771, 40.4722),
-        'Madrid-Recoletos': (-3.6892, 40.4200),
-        'Madrid-Nuevos Ministerios': (-3.6929, 40.4461),
-        'Madrid-Príncipe Pío': (-3.7186, 40.4137),
-        'Madrid-Ramón Y Cajal': (-3.6629, 40.4461),
-        'Pozuelo': (-3.7833, 40.4333),
-        'Majadahonda': (-3.8833, 40.4667),
-        'Las Rozas': (-3.9167, 40.4833),
-        'El Escorial': (-4.1167, 40.5833),
-        'Getafe-Centro': (-3.7333, 40.3167),
-        'Getafe-Industrial': (-3.7167, 40.3000),
-        'Getafe-Sector 3': (-3.7000, 40.2833),
-        'Leganés': (-3.7667, 40.3167),
-        'Móstoles': (-3.8667, 40.3167),
-        'Móstoles-El Soto': (-3.8833, 40.3000),
-        'Alcorcón': (-3.8333, 40.3500),
-        'Fuenlabrada': (-3.8000, 40.2833),
-        'Aranjuez': (-3.6000, 40.0333),
-        'Ciempozuelos': (-3.6167, 40.1667),
-        'Valdemoro': (-3.6667, 40.1833),
-        'Pinto': (-3.7000, 40.2333),
-        'Alcalá De Henares': (-3.3667, 40.4833),
-        'Alcalá De Henares-Universidad': (-3.3833, 40.4833),
-        'Guadalajara': (-3.1667, 40.6333),
-        'Coslada': (-3.5667, 40.4333),
-        'San Fernando': (-3.5333, 40.4167),
-        'Torrejón De Ardoz': (-3.4833, 40.4500),
-        'Vallecas': (-3.6500, 40.3833),
-        'Asamblea De Madrid-Entrevías': (-3.6667, 40.3833),
-        'Madrid-Villaverde Alto': (-3.6833, 40.3500),
-        'Madrid-Villaverde Bajo': (-3.6667, 40.3667),
-        'Madrid-Aeropuerto T4': (-3.5833, 40.4833),
-        'Alcobendas-San Sebastián De Los Reyes': (-3.6333, 40.5500),
-        'El Barrial-Centro Comercial Pozuelo': (-3.8000, 40.4333),
-        'Parque Polvoranca': (-3.8167, 40.3333),
-        'San Cristóbal De Los Ángeles': (-3.6833, 40.3667),
-        'Pitis': (-3.7333, 40.4833),
-        'Las Matas': (-3.9500, 40.5000),
-        'Tres Cantos': (-3.7000, 40.5833),
-    }
+# Cargar datos reales
+stops = pd.read_csv('stops.txt')
+stop_times = pd.read_csv('stop_times_madrid.csv')
 
-    edges = [
-        ('Madrid-Atocha Cercanías', 'Madrid-Recoletos'),
-        ('Madrid-Recoletos', 'Madrid-Nuevos Ministerios'),
-        ('Madrid-Nuevos Ministerios', 'Madrid-Chamartín-Clara Campoamor'),
-        ('Madrid-Atocha Cercanías', 'Vallecas'),
-        ('Vallecas', 'Asamblea De Madrid-Entrevías'),
-        ('Asamblea De Madrid-Entrevías', 'Madrid-Villaverde Bajo'),
-        ('Madrid-Villaverde Bajo', 'Madrid-Villaverde Alto'),
-        ('Madrid-Villaverde Alto', 'San Cristóbal De Los Ángeles'),
-        ('Madrid-Atocha Cercanías', 'Pinto'),
-        ('Pinto', 'Valdemoro'),
-        ('Valdemoro', 'Ciempozuelos'),
-        ('Ciempozuelos', 'Aranjuez'),
-        ('Pinto', 'Getafe-Sector 3'),
-        ('Getafe-Sector 3', 'Getafe-Centro'),
-        ('Getafe-Centro', 'Getafe-Industrial'),
-        ('Getafe-Industrial', 'Leganés'),
-        ('Leganés', 'Móstoles'),
-        ('Móstoles', 'Móstoles-El Soto'),
-        ('Leganés', 'Fuenlabrada'),
-        ('Fuenlabrada', 'Parque Polvoranca'),
-        ('Parque Polvoranca', 'Alcorcón'),
-        ('Madrid-Atocha Cercanías', 'Coslada'),
-        ('Coslada', 'San Fernando'),
-        ('San Fernando', 'Torrejón De Ardoz'),
-        ('Torrejón De Ardoz', 'Alcalá De Henares-Universidad'),
-        ('Alcalá De Henares-Universidad', 'Alcalá De Henares'),
-        ('Alcalá De Henares', 'Guadalajara'),
-        ('Madrid-Chamartín-Clara Campoamor', 'Madrid-Aeropuerto T4'),
-        ('Madrid-Chamartín-Clara Campoamor', 'Alcobendas-San Sebastián De Los Reyes'),
-        ('Madrid-Chamartín-Clara Campoamor', 'Tres Cantos'),
-        ('Madrid-Chamartín-Clara Campoamor', 'Pitis'),
-        ('Pitis', 'Las Matas'),
-        ('Las Matas', 'Las Rozas'),
-        ('Las Rozas', 'Majadahonda'),
-        ('Majadahonda', 'Pozuelo'),
-        ('Pozuelo', 'El Barrial-Centro Comercial Pozuelo'),
-        ('El Barrial-Centro Comercial Pozuelo', 'Madrid-Príncipe Pío'),
-        ('Madrid-Príncipe Pío', 'Madrid-Atocha Cercanías'),
-        ('Madrid-Nuevos Ministerios', 'Madrid-Ramón Y Cajal'),
-        ('Las Rozas', 'El Escorial'),
-    ]
+stops.columns = stops.columns.str.strip()
+stop_times.columns = stop_times.columns.str.strip()
+stops['stop_name'] = stops['stop_name'].str.strip()
 
-    G = nx.Graph()
-    G.add_nodes_from(estaciones)
-    G.add_edges_from(edges)
-    pos = {n: coords[n] for n in estaciones if n in coords}
-    return G, pos
+# Construir grafo
+stop_times = stop_times.sort_values(['trip_id', 'stop_sequence'])
+edges = stop_times.merge(stop_times, on='trip_id').query('stop_sequence_x + 1 == stop_sequence_y')[['stop_id_x', 'stop_id_y']]
+edges = edges.merge(stops[['stop_id', 'stop_name']], left_on='stop_id_x', right_on='stop_id').rename(columns={'stop_name': 'name_x'}).drop('stop_id', axis=1)
+edges = edges.merge(stops[['stop_id', 'stop_name']], left_on='stop_id_y', right_on='stop_id').rename(columns={'stop_name': 'name_y'}).drop('stop_id', axis=1)
 
-G_madrid, pos_madrid = build_madrid_network()
+G = nx.from_pandas_edgelist(edges, source='name_x', target='name_y')
+pos = {row['stop_name']: (row['stop_lon'], row['stop_lat']) for _, row in stops.iterrows()}
+
+# Subgrafo Madrid
+componentes = list(nx.connected_components(G))
+madrid_component = next(comp for comp in componentes if 'Madrid-Atocha Cercanías' in comp)
+G_madrid = G.subgraph(madrid_component).copy()
+pos_madrid = {node: pos[node] for node in G_madrid.nodes() if node in pos}
 
 node_x = [pos_madrid[n][0] for n in G_madrid.nodes() if n in pos_madrid]
 node_y = [pos_madrid[n][1] for n in G_madrid.nodes() if n in pos_madrid]
@@ -166,7 +79,7 @@ app = dash.Dash(__name__)
 server = app.server
 
 app.layout = html.Div([
-    html.H2(" RENFE Madrid — Delay Propagation",
+    html.H2("RENFE Madrid — Delay Propagation",
             style={'textAlign': 'center', 'fontFamily': 'Arial'}),
     html.Div([
         html.Div([
@@ -180,7 +93,7 @@ app.layout = html.Div([
                        marks={round(i,1): str(round(i,1)) for i in [0.3,0.4,0.5,0.6,0.7,0.8,0.9]}),
         ], style={'width': '45%', 'display': 'inline-block', 'padding': '10px'}),
     ], style={'textAlign': 'center'}),
-    html.P(" Click on a station to start, then press ▶ Play",
+    html.P("Click on a station to start, then press ▶ Play",
            style={'textAlign': 'center', 'fontFamily': 'Arial', 'color': 'gray'}),
     html.Div([
         html.Span("🔵 No delay  ", style={'fontFamily': 'Arial', 'marginRight': '15px'}),
